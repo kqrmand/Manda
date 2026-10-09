@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1f8f6a">
-<title>ئیدیتۆری SRT</title>
+<title>ئیدیتەر SRT</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231f8f6a'/%3E%3Cpath d='M18 24h28M18 34h28M18 44h16' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,23 +91,23 @@ button{font-family:inherit;color:inherit}
 <main id="panel-seditor" class="panel active">
   <div id="seRoot">
     <div id="seEmpty">
-      <h1>ئیدیتۆری SRT</h1>
+      <h1>ئیدیتەر SRT</h1>
       <p>تەنها دەقی ژێرنووس ئیدیت بکە، کاتەکان هەرگیز ناگۆڕدرێن. هەموو گۆڕانکارییەک خۆکار پاشەکەوت دەبێت.</p>
       <div class="drop" id="seDrop">
         <div class="drop-ic"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L7 9m5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></div>
         <div class="label">فایلی SRT هەڵبژێرە</div>
-        <div class="hint">کرتە بکە یان فایلەکە فڕێبدە لێرە</div>
+        <div class="hint">کرتە بکە یان فایلەکە فڕێبدەرە ئێرەوە</div>
       </div>
       <input type="file" id="seFile" accept=".srt,.txt,text/plain" style="display:none">
-      <div class="chips"><span>💾 پاشەکەوتی خۆکار</span><span>✎ تەنها دەق</span><span>🎨 ڕەنگ و ♪</span><span>⛶ شاشەی تەواو</span></div>
+      <div class="chips"><span>💾 پاشەکەوتی خۆکار</span><span>✎ تەنها دەق</span><span>🎨 ڕەنگ و ♪</span><span>⛶ پڕاوپڕ</span></div>
     </div>
     <div class="se-app se-hide" id="seApp">
       <div class="se-bar">
         <div class="se-name" id="seName"></div>
         <span class="se-go"><input type="number" id="seGoIn" inputmode="numeric" enterkeyhint="go" min="1" placeholder="بلۆک" aria-label="ژمارەی بلۆک"><button class="se-gob" id="seGoBtn" type="button" aria-label="بڕۆ">↵</button></span>
-        <button class="btn" id="seFs" type="button">⛶ شاشەی تەواو</button>
+        <button class="btn" id="seFs" type="button">⛶ پڕاوپڕ</button>
         <button class="btn btn-pri" id="seDl" type="button">دابەزاندن</button>
-        <button class="btn" id="seNew" type="button">فایلی نوێ</button>
+        <button class="btn" id="seNew" type="button">فا. نوێ</button>
       </div>
       <div class="se-lw">
         <div class="se-list" id="seList"></div>
@@ -460,7 +460,7 @@ $('seDl').onclick=()=>{
   setTimeout(()=>URL.revokeObjectURL(a.href),2000);
 };
 $('seNew').onclick=()=>{
-  if(!confirm('فایلی ئێستا دادەخرێت و دەسکارییەکان دەسڕێنەوە. بەردەوام بیت؟ (پێشتر «دابەزاندن» بکە)'))return;
+  if(!confirm('فایلی ئێستا دادەخرێت و دەسکارییەکان دەسڕێنەوە. بەردەوام دەبیت؟ (پێشتر فایلەکە دابەزێنە)'))return;
   try{localStorage.removeItem(KEY);}catch(_){}
   S=null;hist.clear();list.innerHTML='';
   $('seApp').classList.add('se-hide');$('seEmpty').classList.remove('se-hide');
@@ -483,7 +483,7 @@ $('seFs').onclick=()=>{
 };
 function fsLabel(){
   const on=fsEl()===root||root.classList.contains('se-pfs');
-  $('seFs').textContent=on?'✕ دەرچوون':'⛶ شاشەی تەواو';
+  $('seFs').textContent=on?'✕ دەرچوون':'⛶ پڕاوپڕ';
   closeMenu();
 }
 ['fullscreenchange','webkitfullscreenchange'].forEach(v=>document.addEventListener(v,fsLabel));
